@@ -1,182 +1,51 @@
-:root {
-  --paper: #f5f5f0;
-  --ink: #111111;
-  --muted: #555555;
-  --rule: #a9a9a2;
-  --link: #0000cc;
-  --visited: #551a8b;
-  --online: #168200;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  background: var(--paper);
-}
-
 body {
-  margin: 0;
-  color: var(--ink);
-  background: var(--paper);
+  margin: 8px;
+  color: #000000;
+  background: #ffffff;
   font-family: "Times New Roman", Times, serif;
-  font-size: 18px;
-  line-height: 1.45;
+  font-size: 16px;
+  line-height: 1.35;
 }
 
 main {
-  width: min(100% - 40px, 680px);
-  margin: 0 auto;
-  padding: 12vh 0 48px;
-}
-
-header {
-  margin-bottom: 36px;
+  max-width: 640px;
+  margin: 32px auto;
 }
 
 h1 {
-  margin: 0;
-  font-size: clamp(2.6rem, 10vw, 5.2rem);
-  font-weight: 400;
-  line-height: 0.92;
-  letter-spacing: -0.055em;
-}
-
-.lede {
-  margin: 20px 0 0;
-  font-size: 1.2rem;
-}
-
-.status {
-  margin: 0 0 24px;
-  color: var(--muted);
-  font-family: "Courier New", Courier, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.01em;
-  text-transform: lowercase;
-}
-
-.status span {
-  color: var(--online);
-  font-size: 0.7em;
-  vertical-align: 0.12em;
-}
-
-hr {
-  height: 0;
-  margin: 0;
-  border: 0;
-  border-top: 1px solid var(--rule);
-}
-
-section {
-  padding: 30px 0 34px;
-}
-
-section + section {
-  padding-top: 0;
+  margin: 0 0 4px;
+  font-size: 36px;
 }
 
 h2 {
-  margin: 0 0 10px;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  margin: 24px 0 8px;
+  font-size: 20px;
 }
 
-p {
-  max-width: 60ch;
-}
-
-section p {
-  margin: 0;
+hr {
+  margin: 24px 0;
 }
 
 a {
-  color: var(--link);
-  text-decoration: underline;
-  text-decoration-thickness: 1px;
-  text-underline-offset: 2px;
+  color: #0000ee;
 }
 
 a:visited {
-  color: var(--visited);
-}
-
-a:hover {
-  color: #cc0000;
+  color: #551a8b;
 }
 
 a:focus-visible {
-  outline: 2px dotted var(--ink);
-  outline-offset: 3px;
-}
-
-.portfolio {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.portfolio li {
-  display: grid;
-  grid-template-columns: minmax(120px, 0.7fr) 1.8fr;
-  gap: 20px;
-  padding: 13px 0 15px;
-  border-top: 1px dotted var(--rule);
-}
-
-.portfolio li:last-child {
-  border-bottom: 1px dotted var(--rule);
-}
-
-.portfolio span {
-  color: var(--muted);
+  outline: 1px dotted #000000;
+  outline-offset: 2px;
 }
 
 footer {
-  padding-top: 24px;
-  color: var(--muted);
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.72rem;
-  line-height: 1.5;
-}
-
-footer p {
-  margin: 0 0 7px;
-}
-
-.updated {
-  font-family: "Courier New", Courier, monospace;
+  color: #444444;
+  font-size: 12px;
 }
 
 @media (max-width: 520px) {
-  body {
-    font-size: 17px;
-  }
-
   main {
-    width: min(100% - 28px, 680px);
-    padding-top: 64px;
-  }
-
-  .portfolio li {
-    grid-template-columns: 1fr;
-    gap: 4px;
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .status span {
-    animation: blink 1.6s steps(2, start) infinite;
-  }
-}
-
-@keyframes blink {
-  50% {
-    opacity: 0.35;
+    margin: 20px 8px;
   }
 }

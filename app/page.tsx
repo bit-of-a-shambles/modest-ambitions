@@ -1,45 +1,30 @@
 export default function Home() {
   return (
     <main>
-      <header>
-        <p className="status">
-          <span aria-hidden="true">●</span> independent &amp; bootstrapped
-        </p>
-        <h1>Modest Ambitions</h1>
-        <p className="lede">A small software startup studio.</p>
-      </header>
+      <h1>Modest Ambitions</h1>
+      <p>
+        <em>A small software startup studio.</em>
+      </p>
 
       <hr />
 
-      <section aria-labelledby="about">
-        <h2 id="about">What we do</h2>
-        <p>
-          We build and operate useful internet businesses. No blitzscaling, no
-          theatre—just patient work on software that earns its keep.
-        </p>
-      </section>
+      <p>We build and run small, useful internet businesses.</p>
 
-      <section aria-labelledby="portfolio">
-        <h2 id="portfolio">Portfolio</h2>
-        <ol className="portfolio">
-          <li>
-            <a href="https://popadex.com">PopaDex</a>
-            <span>
-              A private, read-only personal finance copilot for understanding
-              your money.
-            </span>
-          </li>
-        </ol>
-      </section>
+      <h2>Portfolio</h2>
+      <ul>
+        <li>
+          <a href="https://popadex.com">popadex.com</a> — personal finance
+          software
+        </li>
+      </ul>
 
       <hr />
 
       <footer>
-        <p>
-          Modest Ambitions is a trading name of Administrative Burden Ltd,
-          registered in the United Kingdom.
-        </p>
-        <p className="updated">Last updated: July 2026</p>
+        Modest Ambitions is a trading name of Administrative Burden Ltd,
+        registered in the United Kingdom.
+        <br />
+        Last updated: 30 July 2026.
       </footer>
     </main>
   );
