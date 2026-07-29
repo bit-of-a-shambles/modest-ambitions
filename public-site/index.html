@@ -6,156 +6,64 @@
     <meta name="description" content="An independent software startup studio building small, useful internet businesses.">
     <title>Modest Ambitions — Software Startup Studio</title>
     <style>
-      :root {
-        --paper: #f5f5f0;
-        --ink: #111;
-        --muted: #555;
-        --rule: #a9a9a2;
-        --link: #0000cc;
-        --visited: #551a8b;
-        --online: #168200;
-      }
-
-      * { box-sizing: border-box; }
-      html, body { background: var(--paper); }
-
       body {
-        margin: 0;
-        color: var(--ink);
+        margin: 8px;
+        color: #000;
+        background: #fff;
         font-family: "Times New Roman", Times, serif;
-        font-size: 18px;
-        line-height: 1.45;
+        font-size: 16px;
+        line-height: 1.35;
       }
 
       main {
-        width: min(100% - 40px, 680px);
-        margin: 0 auto;
-        padding: 12vh 0 48px;
+        max-width: 640px;
+        margin: 32px auto;
       }
-
-      header { margin-bottom: 36px; }
 
       h1 {
-        margin: 0;
-        font-size: clamp(2.6rem, 10vw, 5.2rem);
-        font-weight: 400;
-        line-height: .92;
-        letter-spacing: -.055em;
+        margin: 0 0 4px;
+        font-size: 36px;
       }
-
-      .lede { margin: 20px 0 0; font-size: 1.2rem; }
-
-      .status {
-        margin: 0 0 24px;
-        color: var(--muted);
-        font-family: "Courier New", Courier, monospace;
-        font-size: .72rem;
-      }
-
-      .status b {
-        color: var(--online);
-        font-size: .7em;
-        vertical-align: .12em;
-      }
-
-      hr {
-        height: 0;
-        margin: 0;
-        border: 0;
-        border-top: 1px solid var(--rule);
-      }
-
-      section { padding: 30px 0 34px; }
-      section + section { padding-top: 0; }
 
       h2 {
-        margin: 0 0 10px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: .72rem;
-        letter-spacing: .08em;
-        text-transform: uppercase;
+        margin: 24px 0 8px;
+        font-size: 20px;
       }
 
-      p { max-width: 60ch; }
-      section p { margin: 0; }
-
-      a {
-        color: var(--link);
-        text-decoration-thickness: 1px;
-        text-underline-offset: 2px;
-      }
-
-      a:visited { color: var(--visited); }
-      a:hover { color: #c00; }
-      a:focus-visible { outline: 2px dotted var(--ink); outline-offset: 3px; }
-
-      .portfolio { margin: 0; padding: 0; list-style: none; }
-
-      .portfolio li {
-        display: grid;
-        grid-template-columns: minmax(120px, .7fr) 1.8fr;
-        gap: 20px;
-        padding: 13px 0 15px;
-        border-top: 1px dotted var(--rule);
-        border-bottom: 1px dotted var(--rule);
-      }
-
-      .portfolio span { color: var(--muted); }
+      hr { margin: 24px 0; }
+      a { color: #0000ee; }
+      a:visited { color: #551a8b; }
+      a:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
 
       footer {
-        padding-top: 24px;
-        color: var(--muted);
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: .72rem;
-        line-height: 1.5;
+        color: #444;
+        font-size: 12px;
       }
-
-      footer p { margin: 0 0 7px; }
-      .updated { font-family: "Courier New", Courier, monospace; }
 
       @media (max-width: 520px) {
-        body { font-size: 17px; }
-        main { width: min(100% - 28px, 680px); padding-top: 64px; }
-        .portfolio li { grid-template-columns: 1fr; gap: 4px; }
+        main { margin: 20px 8px; }
       }
-
-      @media (prefers-reduced-motion: no-preference) {
-        .status b { animation: blink 1.6s steps(2, start) infinite; }
-      }
-
-      @keyframes blink { 50% { opacity: .35; } }
     </style>
   </head>
   <body>
     <main>
-      <header>
-        <p class="status"><b aria-hidden="true">●</b> independent &amp; bootstrapped</p>
-        <h1>Modest Ambitions</h1>
-        <p class="lede">A small software startup studio.</p>
-      </header>
+      <h1>Modest Ambitions</h1>
+      <p><em>A small software startup studio.</em></p>
 
       <hr>
 
-      <section>
-        <h2>What we do</h2>
-        <p>We build and operate useful internet businesses. No blitzscaling, no theatre—just patient work on software that earns its keep.</p>
-      </section>
+      <p>We build and run small, useful internet businesses.</p>
 
-      <section>
-        <h2>Portfolio</h2>
-        <ol class="portfolio">
-          <li>
-            <a href="https://popadex.com">PopaDex</a>
-            <span>A private, read-only personal finance copilot for understanding your money.</span>
-          </li>
-        </ol>
-      </section>
+      <h2>Portfolio</h2>
+      <ul>
+        <li><a href="https://popadex.com">popadex.com</a> — personal finance software</li>
+      </ul>
 
       <hr>
 
       <footer>
-        <p>Modest Ambitions is a trading name of Administrative Burden Ltd, registered in the United Kingdom.</p>
-        <p class="updated">Last updated: July 2026</p>
+        Modest Ambitions is a trading name of Administrative Burden Ltd, registered in the United Kingdom.<br>
+        Last updated: 30 July 2026.
       </footer>
     </main>
   </body>
