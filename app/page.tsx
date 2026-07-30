@@ -6,16 +6,16 @@ export default function Home() {
       </h1>
 
       <nav className="text-nav" aria-label="Primary navigation">
-        [ <a href="#about">What We Do?</a> ] [ <a href="#companies">Companies</a>{" "}
-        ] [ <a href="https://popadex.com">PopaDex</a> ]
+        [ <a href="#about">What We Do?</a> ] [ <a href="#portfolio">Portfolio</a>{" "}
+        ]
       </nav>
 
       <nav className="button-nav" aria-label="Shortcuts">
         <a className="yellow" href="#top">
           ▾ Top
         </a>
-        <a className="lilac" href="#companies">
-          ↗ Companies
+        <a className="lilac" href="#portfolio">
+          ↗ Portfolio
         </a>
         <a className="pink" href="#about">
           ✦ About
@@ -26,7 +26,7 @@ export default function Home() {
         Modest Ambitions builds and operates small, useful internet businesses.
       </p>
 
-      <h2 id="companies">Companies</h2>
+      <h2 id="portfolio">Portfolio</h2>
       <ul className="directory">
         <li>
           <a href="https://popadex.com">PopaDex</a>
