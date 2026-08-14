@@ -7,7 +7,7 @@ export default function Home() {
 
       <nav className="text-nav" aria-label="Primary navigation">
         [ <a href="#about">What We Do?</a> ] [ <a href="#portfolio">Portfolio</a>{" "}
-        ]
+        ] [ <a href="#services">Services</a> ]
       </nav>
 
       <nav className="button-nav" aria-label="Shortcuts">
@@ -31,6 +31,16 @@ export default function Home() {
         <li>
           <a href="https://popadex.com">PopaDex</a>
           <em> (personal finance software)</em> <mark>NEW</mark>
+        </li>
+      </ul>
+
+      <h2 id="services">Services being tested</h2>
+      <ul className="directory">
+        <li>
+          <a href="/arborist-invoice-audit/">
+            Completed-work invoice exception audit
+          </a>
+          <em> (commercial tree-care contractors)</em>
         </li>
       </ul>
 
