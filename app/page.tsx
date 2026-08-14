@@ -52,7 +52,10 @@ export default function Home() {
       <hr />
 
       <footer>
-        <em>Modest Ambitions is a trading name of Administrative Burden Ltd.</em>
+        <em>
+          Modest Ambitions is a trading name of Administrative Burden Ltd,
+          registered in England and Wales, company number 17363389.
+        </em>
         <br />
         Copyright © 2026 Administrative Burden Ltd
       </footer>
