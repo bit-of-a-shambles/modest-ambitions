@@ -24,6 +24,11 @@ export default function ArboristInvoiceAuditThanks() {
         <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a>.
       </div>
       <p>
+        Your refund right stands from now until whenever you have read the
+        register. If it does not show you anything worth acting on, reply to
+        that email and say so, and we return the full amount.
+      </p>
+      <p>
         <a href="/arborist-invoice-audit/">Return to the audit description</a>
       </p>
     </main>
