@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A fixed-scope, read-only audit for commercial arboricultural contractors who need to find completed work that may not have reached invoicing. Refunded in full if it finds nothing worth acting on.">
+    <title>Completed-work invoice exception audit | Modest Ambitions</title>
+    <style>
+      body { margin: 8px; color: #000; background: #fff; font-family: "Times New Roman", Times, serif; font-size: 13px; line-height: 1.15; }
+      .offer-page { max-width: 820px; margin: 24px auto 48px; padding: 0 18px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.55; }
+      .offer-page h1 { max-width: 760px; margin: 8px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 7vw, 62px); font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; }
+      .offer-page h2 { margin: 32px 0 8px; font-size: 19px; }
+      .offer-page h3 { margin: 24px 0 4px; font-size: 16px; }
+      .offer-page p, .offer-page li { max-width: 700px; }
+      .crumbs, .eyebrow, .small-print { font-size: 13px; }
+      .eyebrow { margin: 48px 0 0; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .lede { max-width: 720px; margin-bottom: 28px; font-size: 20px; line-height: 1.45; }
+      .offer-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 24px; align-items: center; margin: 34px 0; padding: 24px; border: 1px solid #1d1d1d; background: #fff9d9; }
+      .offer-card p { margin: 0; }
+      .offer-card .price { margin-bottom: 5px; font-size: 28px; font-weight: 700; }
+      .offer-card .price span { font-size: 15px; font-weight: 400; }
+      .checkout-button { display: inline-block; padding: 13px 18px; border: 2px solid #000; border-radius: 2px; color: #fff; background: #101010; font-weight: 700; text-align: center; text-decoration: none; }
+      .checkout-button:visited { color: #fff; }
+      .checkout-button:hover { background: #343434; }
+      .offer-card .guarantee-line { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #d8cf9a; }
+      .offer-card .small-print { grid-column: 1 / -1; color: #444; }
+      .reassurance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; margin: 0 0 34px; padding: 0; list-style: none; }
+      .offer-page .reassurance li { margin-bottom: 0; padding-left: 20px; font-size: 15px; background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M2 8.5l4 4 8-9' fill='none' stroke='%23101010' stroke-width='2'/%3E%3C/svg%3E") no-repeat 0 0.35em; background-size: 13px 13px; }
+      .offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
+      .offer-page ul { margin-top: 8px; padding-left: 22px; }
+      .offer-page li { margin-bottom: 8px; }
+      .sample-table { margin: 14px 0 8px; overflow-x: auto; }
+      .sample-table table { min-width: 560px; border-collapse: collapse; font-size: 14px; }
+      .sample-table th, .sample-table td { padding: 7px 12px 7px 0; border-bottom: 1px solid #ddd; text-align: left; vertical-align: top; }
+      .sample-table th { border-bottom: 1px solid #1d1d1d; white-space: nowrap; }
+      .founder { margin-top: 34px; padding: 18px 20px; border: 1px solid #ccc; background: #fafafa; }
+      .founder h2 { margin-top: 0; }
+      .offer-faq, .notice { margin-top: 34px; padding: 18px 20px; border-left: 4px solid #000; background: #f2f2f2; }
+      .offer-faq h2 { margin-top: 0; }
+      a { color: #0000ee; }
+      a:visited { color: #551a8b; }
+      a:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
+      footer { font-size: 10px; }
+      hr { margin: 8px 0; }
+      @media (max-width: 620px) {
+        .offer-page { margin-top: 12px; padding: 0 12px; }
+        .offer-card, .offer-grid, .reassurance { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="offer-page">
+      <p class="crumbs"><a href="/modest-ambitions/">Modest Ambitions</a> / Completed-work invoice audit</p>
+
+      <header class="offer-header">
+        <p class="eyebrow">For commercial tree-care contractors</p>
+        <h1>Find completed tree work that never reached an invoice</h1>
+        <p class="lede">
+          Crews finish the job. The paperwork moves between a job-management
+          system, a diary and an accounts package. Some of that work quietly
+          stops before it is billed. We compare one bounded sample of your
+          accepted work, completion evidence and invoice records, then send back
+          a short register of the jobs that do not line up.
+        </p>
+      </header>
+
+      <section class="offer-card" aria-labelledby="audit-price">
+        <div>
+          <!-- Rendered in GBP so the no-JavaScript case still shows a price that
+               matches the link below it. localise() swaps both together. -->
+          <p class="price" id="audit-price">£395 <span>fixed price, GBP</span></p>
+          <p>
+            One business, one agreed period, up to 250 job records and the
+            matching invoice export. No subscription. Nothing to install.
+          </p>
+        </div>
+        <a class="checkout-button" id="checkout" href="https://buy.stripe.com/3cIfZhbaK7b9drtgef5Rm03?client_reference_id=EXP-0025-GB">Purchase the audit</a>
+        <p class="guarantee-line">
+          <strong>100% money-back guarantee.</strong> Read the register. If it
+          does not show you anything worth acting on, reply and say so, and we
+          refund the full <span id="refund-amount">£395</span>. You keep the
+          register. There is no form and no time limit.
+        </p>
+        <p class="small-print">
+          Secure checkout by Stripe. We never see your card details.
+          <span id="switcher"></span>
+        </p>
+      </section>
+
+      <ul class="reassurance">
+        <li>Read-only. We change nothing in your systems.</li>
+        <li>No call, no demo, no meeting.</li>
+        <li>We never contact your customers.</li>
+        <li>Your files are deleted 30 days after delivery.</li>
+      </ul>
+
+      <div class="offer-grid">
+        <section>
+          <h2>What we check</h2>
+          <ul>
+            <li>Accepted or completed work with no clear invoice match</li>
+            <li>Invoice records with ambiguous job or completion references</li>
+            <li>Work added to a job after the original quote that does not appear on the invoice</li>
+            <li>Completion evidence that appears to have stalled before billing</li>
+          </ul>
+        </section>
+        <section>
+          <h2>What you receive</h2>
+          <ul>
+            <li>A source-linked CSV exception register</li>
+            <li>A one-page note explaining the checks and the uncertain cases</li>
+            <li>Delivery within three working days of receiving clean exports</li>
+            <li>A direct reply address for questions about any single row</li>
+          </ul>
+        </section>
+      </div>
+
+      <section>
+        <h2>What the register looks like</h2>
+        <p>
+          Every row points back to the record it came from, so your office
+          manager can check it in a few seconds and either bill it or dismiss it.
+        </p>
+        <div class="sample-table">
+          <table>
+            <thead>
+              <tr><th>Job</th><th>Completed</th><th>Work</th><th>Exception</th><th>Confidence</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>JOB-1042</td><td>14 Mar</td><td>Crown reduction, 3 limes</td><td>Signed off, no invoice found in period</td><td>High</td></tr>
+              <tr><td>JOB-1119</td><td>02 Apr</td><td>Emergency storm callout</td><td>Two site visits recorded, one invoiced</td><td>Medium</td></tr>
+              <tr><td>JOB-0987</td><td>27 Feb</td><td>Stump grinding, added on site</td><td>Added after quote, absent from invoice</td><td>High</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-print">Illustrative layout using invented jobs. It is not data from a client.</p>
+      </section>
+
+      <section class="founder">
+        <h2>Who you are buying from</h2>
+        <p>
+          I am Duarte. I run Modest Ambitions, a one-person studio trading as
+          Administrative Burden Ltd, registered in England and Wales at 71-75
+          Shelton Street, London WC2H 9JQ. The company number is
+          <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">17363389</a>,
+          and you can check it on the public register before you send me
+          anything. The audit is done by me, and the reply to your email comes
+          from me.
+        </p>
+        <p>
+          This audit is new, and I am not going to pretend otherwise. There are
+          no customer logos on this page because I am not going to invent them.
+          What I can offer instead is the arrangement above: a fixed price, a
+          bounded scope, a named person, and a refund you can claim by replying
+          to an email. If the work is worth paying for, the register will show
+          it, and if it is not, you have lost nothing.
+        </p>
+      </section>
+
+      <section>
+        <h2>What we need from you</h2>
+        <p>
+          A spreadsheet or export of accepted and completed work for the agreed
+          period, plus the matching invoice export. Completion references are
+          optional. Job values and dates are useful. Customer names, addresses
+          and phone numbers are not, and you are welcome to strip them before
+          sending.
+        </p>
+        <p>
+          Please do not email customer files. After purchase we agree the
+          minimum data needed and a secure transfer method first.
+        </p>
+      </section>
+
+      <section>
+        <h2>Boundaries</h2>
+        <p>
+          This is a read-only operational check. It does not include accounting
+          advice, debt collection, customer contact, changes to your systems or
+          a conclusion that an invoice is legally due. Your team makes the final
+          decision on every flagged record.
+        </p>
+      </section>
+
+      <section>
+        <h2>Common questions</h2>
+
+        <h3>My bookkeeper already reconciles everything.</h3>
+        <p>
+          Then this should come back nearly empty, and you get your money back.
+          Bookkeeping reconciles invoices against payments. This compares
+          completed work against invoices, which is a different direction and
+          the one where jobs go missing.
+        </p>
+
+        <h3>We use a job-management system that handles invoicing.</h3>
+        <p>
+          Most of the gaps we look for happen at the edges of that system: work
+          added on site, jobs closed by a crew rather than the office, callouts
+          logged in a different place. If the system caught all of it, the
+          register will be short.
+        </p>
+
+        <h3>I do not want to send my data to a stranger.</h3>
+        <p>
+          Reasonable. Send one month rather than a year, strip customer
+          identifiers first, and use the transfer method we agree after
+          purchase. The audit works on job references, dates and amounts.
+        </p>
+
+        <h3>How long does it take on my side?</h3>
+        <p>Two exports and one email. Most of the elapsed time is on my side, not yours.</p>
+
+        <h3>What if the exports are messy?</h3>
+        <p>Messy is normal. If they are unusable, I will say so before starting and refund you rather than guess.</p>
+      </section>
+
+      <section class="offer-faq">
+        <h2>Questions before paying?</h2>
+        <p>
+          Email <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a>
+          with the approximate number of job records and the systems you use. No
+          call is required, and you will get an answer from a person.
+        </p>
+      </section>
+
+      <hr>
+      <footer>
+        <em>
+          Modest Ambitions is a trading name of Administrative Burden Ltd,
+          registered in England and Wales, company number
+          <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">17363389</a>,
+          at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ.
+        </em>
+        <br>
+        Copyright © 2026 Administrative Burden Ltd
+      </footer>
+    </main>
+
+    <script>
+      // The vinext version of this page resolves currency server-side from the
+      // Cloudflare edge country. GitHub Pages has no server, so the same market
+      // table is applied client-side. Price and link are always set together
+      // from one entry, so a local price can never sit beside a link that
+      // charges another currency.
+      (function () {
+        var MARKETS = {
+          GB: { currency: "GBP", price: "£395", label: "£ GBP", url: "https://buy.stripe.com/3cIfZhbaK7b9drtgef5Rm03" },
+          US: { currency: "USD", price: "$495", label: "$ USD", url: "https://buy.stripe.com/00w9AT7YydzxfzB3rt5Rm04" },
+          CA: { currency: "CAD", price: "CA$695", label: "CA$ CAD", url: "https://buy.stripe.com/3cI8wP5Qq675bjl1jl5Rm05" }
+        };
+        var ORDER = ["GB", "US", "CA"];
+
+        var US_TZ = /^America\/(New_York|Chicago|Denver|Los_Angeles|Phoenix|Anchorage|Adak|Detroit|Boise|Juneau|Menominee|Nome|Sitka|Yakutat|Indiana|Kentucky|North_Dakota)/;
+        var CA_TZ = /^America\/(Toronto|Vancouver|Edmonton|Winnipeg|Halifax|St_Johns|Regina|Montreal|Moncton|Whitehorse|Yellowknife|Iqaluit|Glace_Bay|Goose_Bay|Rankin_Inlet|Resolute|Cambridge_Bay|Inuvik|Dawson|Fort_Nelson|Creston|Blanc-Sablon|Atikokan|Swift_Current|Dawson_Creek|Nipigon|Thunder_Bay|Rainy_River|Pangnirtung)/;
+
+        function resolve() {
+          var requested = new URLSearchParams(location.search).get("market");
+          if (requested && MARKETS[requested.toUpperCase()]) {
+            return requested.toUpperCase();
+          }
+          var tz = "";
+          try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+          if (US_TZ.test(tz)) return "US";
+          if (CA_TZ.test(tz)) return "CA";
+          return "GB";
+        }
+
+        var code = resolve();
+        var market = MARKETS[code];
+
+        document.getElementById("audit-price").innerHTML =
+          market.price + ' <span>fixed price, ' + market.currency + "</span>";
+        document.getElementById("refund-amount").textContent = market.price;
+        document.getElementById("checkout").href =
+          market.url + "?client_reference_id=EXP-0025-" + code;
+
+        var others = ORDER.filter(function (c) { return c !== code; });
+        document.getElementById("switcher").innerHTML =
+          " Paying from another country? " +
+          others.map(function (c) {
+            return '<a href="?market=' + c + '">' + MARKETS[c].label + "</a>";
+          }).join(" · ");
+      })();
+    </script>
+  </body>
+</html>
