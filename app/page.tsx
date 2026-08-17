@@ -32,6 +32,10 @@ export default function Home() {
           <a href="https://popadex.com">PopaDex</a>
           <em> (personal finance software)</em> <mark>NEW</mark>
         </li>
+        <li>
+          <a href="https://github.com/bit-of-a-shambles/relay-server">Relay</a>
+          <em> (mobile remote for coding agents)</em> <mark>NEW</mark>
+        </li>
       </ul>
 
       <h2 id="services">Services being tested</h2>
@@ -45,7 +49,7 @@ export default function Home() {
       </ul>
 
       <p className="count">
-        <em>1 company in the portfolio</em> | <a href="#top">Top</a> |{" "}
+        <em>2 companies in the portfolio</em>
         <a href="#about">About</a>
       </p>
 
