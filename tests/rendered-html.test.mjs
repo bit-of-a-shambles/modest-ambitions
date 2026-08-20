@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const workerUrl = new URL("../dist/server/index.js", import.meta.url);
@@ -90,4 +91,18 @@ test("renders the post-payment instructions", async () => {
   assert.match(html, /Payment received/);
   assert.match(html, /within one business day/i);
   assert.match(html, /do not email customer files/i);
+});
+
+test("publishes PAT founding-access payment confirmation", async () => {
+  const html = await readFile(
+    new URL(
+      "../public-site/pat-testing-records/thanks/index.html",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  assert.match(html, /Your founding place is confirmed/);
+  assert.match(html, /software is still being built/i);
+  assert.match(html, /full refund at any time/i);
+  assert.match(html, /hello@modestambitions\.studio/);
 });
