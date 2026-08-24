@@ -93,16 +93,62 @@ test("renders the post-payment instructions", async () => {
   assert.match(html, /do not email customer files/i);
 });
 
-test("publishes PAT founding-access payment confirmation", async () => {
-  const html = await readFile(
+test("publishes the manual PAT register rescue and checkout", async () => {
+  const offer = await readFile(
+    new URL("../public-site/pat-testing-records/index.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(offer, /Turn one messy PAT register into a working client file/);
+  assert.match(offer, /£295/);
+  assert.match(offer, /100% money-back guarantee/i);
+  assert.match(offer, /https:\/\/buy\.stripe\.com\/5kQdR97YygLJ5Z1bXZ5Rm07/);
+  assert.match(offer, /It does not\s+decide whether equipment is safe/i);
+  assert.doesNotMatch(offer, /software is not finished/i);
+
+  const thanks = await readFile(
     new URL(
       "../public-site/pat-testing-records/thanks/index.html",
       import.meta.url,
     ),
     "utf8",
   );
-  assert.match(html, /Your founding place is confirmed/);
-  assert.match(html, /software is still being built/i);
-  assert.match(html, /full refund at any time/i);
-  assert.match(html, /hello@modestambitions\.studio/);
+  assert.match(thanks, /Your register rescue is booked/);
+  assert.match(thanks, /Please do not email client files/i);
+  assert.match(thanks, /hello@modestambitions\.studio/);
+});
+
+test("publishes the restaurant-accounting reconciliation pilot", async () => {
+  const offer = await readFile(
+    new URL(
+      "../public-site/delivery-payout-reconciliation/index.html",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  assert.match(offer, /For accounting firms with restaurant clients/i);
+  assert.match(offer, /\$295/);
+  assert.match(offer, /100% money-back guarantee/i);
+  assert.match(offer, /https:\/\/buy\.stripe\.com\/14A14ngv41QP1IL8LN5Rm0b/);
+  assert.match(offer, /review-ready posting pack/i);
+  assert.doesNotMatch(offer, /For restaurants on DoorDash/i);
+
+  const thanks = await readFile(
+    new URL(
+      "../public-site/delivery-payout-reconciliation/thanks/index.html",
+      import.meta.url,
+    ),
+    "utf8",
+  );
+  assert.match(thanks, /Your reconciliation pilot is booked/);
+  assert.match(thanks, /Please do not email client files/i);
+});
+
+test("buyer-facing manual offers contain no em dashes", async () => {
+  for (const path of [
+    "../public-site/pat-testing-records/index.html",
+    "../public-site/delivery-payout-reconciliation/index.html",
+  ]) {
+    const html = await readFile(new URL(path, import.meta.url), "utf8");
+    assert.doesNotMatch(html, /—/);
+  }
 });
