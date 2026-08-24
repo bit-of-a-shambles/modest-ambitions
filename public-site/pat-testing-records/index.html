@@ -3,23 +3,17 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Founding access to PAT testing records software for UK electricians. Log appliances, get retest dates calculated, issue certificates. GBP 29 a month, refundable while it is being built.">
-    <title>PAT testing records software for UK electricians | Modest Ambitions</title>
-    <!--
-      TEST-002 (ARB-PT-REGULATION-02), stage 1 query-quality cell.
-      Offer state: FOUNDING_ACCESS. The page must never imply the software is
-      finished. Founder approved the GBP 100 cell 2026-08-16; Stripe link is
-      live against product prod_V5IJugTOvMO8Sl. Any copy change here needs the
-      factual/compliance review and the Humanizer pass, and must stay free of
-      em dashes, per plan.md.
-    -->
+    <meta name="description" content="A fixed-scope manual PAT register cleanup for testing businesses. Receive a clean import-ready register and a source-linked exception list within five business days.">
+    <title>PAT register rescue for testing businesses | Modest Ambitions</title>
     <style>
       body { margin: 8px; color: #000; background: #fff; font-family: "Times New Roman", Times, serif; font-size: 13px; line-height: 1.15; }
       .offer-page { max-width: 820px; margin: 24px auto 48px; padding: 0 18px; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.55; }
-      .offer-page h1 { max-width: 760px; margin: 8px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(32px, 6vw, 56px); font-weight: 500; line-height: 1.04; letter-spacing: -0.03em; }
+      .offer-page h1 { max-width: 760px; margin: 8px 0 18px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 7vw, 62px); font-weight: 500; line-height: 1.02; letter-spacing: -0.035em; }
       .offer-page h2 { margin: 32px 0 8px; font-size: 19px; }
+      .offer-page h3 { margin: 24px 0 4px; font-size: 16px; }
       .offer-page p, .offer-page li { max-width: 700px; }
-      .eyebrow { margin: 40px 0 0; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+      .crumbs, .eyebrow, .small-print { font-size: 13px; }
+      .eyebrow { margin: 48px 0 0; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
       .lede { max-width: 720px; margin-bottom: 28px; font-size: 20px; line-height: 1.45; }
       .offer-card { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 16px 24px; align-items: center; margin: 34px 0; padding: 24px; border: 1px solid #1d1d1d; background: #fff9d9; }
       .offer-card p { margin: 0; }
@@ -27,122 +21,167 @@
       .offer-card .price span { font-size: 15px; font-weight: 400; }
       .checkout-button { display: inline-block; padding: 13px 18px; border: 2px solid #000; border-radius: 2px; color: #fff; background: #101010; font-weight: 700; text-align: center; text-decoration: none; }
       .checkout-button:visited { color: #fff; }
+      .checkout-button:hover { background: #343434; }
       .offer-card .guarantee-line { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #d8cf9a; }
-      .offer-card .small-print { grid-column: 1 / -1; font-size: 13px; color: #444; }
+      .offer-card .small-print { grid-column: 1 / -1; color: #444; }
+      .reassurance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; margin: 0 0 34px; padding: 0; list-style: none; }
+      .offer-page .reassurance li { margin-bottom: 0; padding-left: 20px; font-size: 15px; }
+      .offer-page .reassurance li::before { content: "✓"; float: left; margin-left: -20px; }
       .offer-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 30px; }
       .offer-page ul { margin-top: 8px; padding-left: 22px; }
       .offer-page li { margin-bottom: 8px; }
+      .sample-table { margin: 14px 0 8px; overflow-x: auto; }
+      .sample-table table { min-width: 590px; border-collapse: collapse; font-size: 14px; }
+      .sample-table th, .sample-table td { padding: 7px 12px 7px 0; border-bottom: 1px solid #ddd; text-align: left; vertical-align: top; }
+      .sample-table th { border-bottom: 1px solid #1d1d1d; white-space: nowrap; }
       .founder { margin-top: 34px; padding: 18px 20px; border: 1px solid #ccc; background: #fafafa; }
-      .founder h2 { margin-top: 0; }
-      .notice { margin-top: 34px; padding: 18px 20px; border-left: 4px solid #000; background: #f2f2f2; }
-      .notice h2 { margin-top: 0; }
+      .offer-faq, .notice { margin-top: 34px; padding: 18px 20px; border-left: 4px solid #000; background: #f2f2f2; }
+      .offer-faq h2 { margin-top: 0; }
       a { color: #0000ee; }
       a:visited { color: #551a8b; }
+      a:focus-visible { outline: 1px dotted #000; outline-offset: 2px; }
       footer { font-size: 10px; }
-      @media (max-width: 620px) {
-        .offer-page { margin-top: 12px; padding: 0 12px; }
-        .offer-card, .offer-grid { grid-template-columns: 1fr; }
-      }
+      hr { margin: 8px 0; }
+      @media (max-width: 620px) { .offer-page { margin-top: 12px; padding: 0 12px; } .offer-card, .offer-grid, .reassurance { grid-template-columns: 1fr; } }
     </style>
   </head>
   <body>
-    <div class="offer-page">
-      <p class="eyebrow">For UK electricians and PAT testing businesses</p>
-      <h1>Your PAT records, without the spreadsheet.</h1>
-      <p class="lede">
-        Every appliance has its own retest interval. Keeping track of that in
-        a spreadsheet means diary entries, calendar reminders and conditional
-        formatting that nobody keeps up. Then a client asks for a certificate
-        and you rebuild it by hand.
-      </p>
-
-      <div class="notice">
-        <h2>Read this before you pay</h2>
-        <p>
-          This software is not finished. We are building it now and selling
-          founding access so the people who will use it decide what it does
-          first. If you would rather wait until it exists, that is completely
-          reasonable and you should not buy today.
+    <main class="offer-page">
+      <p class="crumbs"><a href="/">Modest Ambitions</a> / PAT register rescue</p>
+      <header>
+        <p class="eyebrow">For electricians and PAT testing businesses</p>
+        <h1>Turn one messy PAT register into a working client file</h1>
+        <p class="lede">
+          Send one spreadsheet or tester export. We clean the structure, flag
+          duplicates and missing fields, and return an import-ready register
+          with a separate list of records that need a competent person's review.
+          Your tester software, spreadsheet and existing process stay in place.
         </p>
-      </div>
+      </header>
 
-      <div class="offer-card">
+      <section class="offer-card" aria-labelledby="pat-price">
         <div>
-          <p class="price">GBP 29 <span>per month, founding access</span></p>
-          <p>First 20 customers. No setup fee, no contract.</p>
+          <p class="price" id="pat-price">£295 <span>fixed price, GBP</span></p>
+          <p>One register, up to 1,000 appliance rows. No subscription and nothing to install.</p>
         </div>
-        <a class="checkout-button" id="founding-checkout" href="https://buy.stripe.com/bJe7sLemWbrp1IL5zB5Rm06">Take a founding place</a>
-        <p class="guarantee-line"><strong>Refundable in full, at any time, until it does the job you need.</strong> Cancel with one email.</p>
-        <p class="small-print">Founding customers keep this price for as long as they stay subscribed.</p>
-      </div>
+        <a class="checkout-button" id="checkout" href="https://buy.stripe.com/5kQdR97YygLJ5Z1bXZ5Rm07?client_reference_id=EXP-0030-GB">Purchase the register rescue</a>
+        <p class="guarantee-line">
+          <strong>100% money-back guarantee.</strong> Read the finished files.
+          If they are not useful, reply and say so and we refund the full
+          <span id="refund-amount">£295</span>. You keep the work.
+        </p>
+        <p class="small-print">Secure checkout by Stripe. We never see your card details. <span id="switcher"></span></p>
+      </section>
+
+      <ul class="reassurance">
+        <li>Delivery within five business days of a usable export.</li>
+        <li>No call, demo or software migration.</li>
+        <li>Read-only. We change nothing in your systems.</li>
+        <li>Files deleted 30 days after delivery.</li>
+      </ul>
 
       <div class="offer-grid">
-        <div>
-          <h2>What we are building first</h2>
+        <section>
+          <h2>What you send</h2>
           <ul>
-            <li>An appliance register you can add to on site, with location, class and owner</li>
-            <li>Next retest date calculated from the appliance class and environment, not typed in by hand</li>
-            <li>Reminders before retests fall due</li>
-            <li>A certificate you can send to the client without rebuilding anything</li>
-            <li>Import from your existing spreadsheet so you do not start again</li>
+            <li>One CSV or Excel appliance register, or an export from your tester software</li>
+            <li>Your existing field names and any retest interval already recorded</li>
+            <li>Optional client or site codes, with personal details removed if you prefer</li>
           </ul>
-        </div>
-        <div>
-          <h2>What we are not building</h2>
+        </section>
+        <section>
+          <h2>What you receive</h2>
           <ul>
-            <li>No full job management or invoicing system</li>
-            <li>No accounts, quotes or scheduling</li>
-            <li>No replacement for your tester, and no advice on what it tells you</li>
-            <li>Nothing that decides an appliance is safe. That judgement stays with the competent person doing the test</li>
+            <li>A cleaned register with consistent columns, dates and identifiers</li>
+            <li>A source-linked exception list for duplicates, blanks and conflicting records</li>
+            <li>A retest-date exception view based only on intervals already supplied by you</li>
+            <li>A short data dictionary so the file is easier to import or hand over</li>
           </ul>
-        </div>
+        </section>
       </div>
 
-      <h2>Who this is for</h2>
-      <p>
-        Electricians and PAT testing businesses who test other people's
-        appliances as billable work, and who currently keep those records in a
-        spreadsheet or in the software that came with the tester. If you test
-        a handful of appliances a year in your own office, the free
-        spreadsheet is probably still the right answer.
-      </p>
+      <section>
+        <h2>What the exception list looks like</h2>
+        <div class="sample-table">
+          <table>
+            <thead><tr><th>Asset</th><th>Site</th><th>Recorded date</th><th>Exception</th><th>Action</th></tr></thead>
+            <tbody>
+              <tr><td>KT-0418</td><td>Kitchen 2</td><td>14 Mar 2025</td><td>Same serial appears twice</td><td>Review duplicate</td></tr>
+              <tr><td>OF-0087</td><td>Office 1</td><td>02 Apr 2025</td><td>Result present, appliance ID blank</td><td>Add identifier</td></tr>
+              <tr><td>WH-0112</td><td>Workshop</td><td>27 Feb 2025</td><td>Next date conflicts with supplied interval</td><td>Competent person to review</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="small-print">Illustrative layout using invented records. It is not client data.</p>
+      </section>
 
-      <h2>Questions</h2>
-      <p>
-        <strong>My tester came with software. Why pay for this?</strong>
-        If the software that shipped with your instrument already does what
-        you need, keep using it. We are building for people who find it tied
-        to one machine, awkward away from the desk, or hard to get a client
-        certificate out of.
-      </p>
-      <p>
-        <strong>When will it be ready?</strong> We do not have a date yet.
-        Founding customers get access as each piece lands, and a refund if it
-        is taking too long for you.
-      </p>
-      <p>
-        <strong>What happens to my data?</strong> It is yours. You can export
-        the whole register at any time, and we will delete it on request.
-      </p>
-
-      <div class="founder">
+      <section class="founder">
+        <h2>Who you are buying from</h2>
         <p>
-          Modest Ambitions is a trading name of Administrative Burden Ltd,
-          registered in England and Wales, company number
-          <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">17363389</a>,
-          at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ.
-          <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a>
+          I'm Duarte. I run Modest Ambitions, a one-person studio. The work is
+          delivered by me, not passed to an anonymous marketplace. You can
+          check Administrative Burden Ltd on the
+          <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">public register</a>
+          before sending anything.
         </p>
-      </div>
+        <p>
+          This is a new service, so there are no customer logos or borrowed
+          testimonials here. The protection is practical: a fixed scope, a
+          named person, a finished deliverable you can inspect and a full refund
+          if it does not help.
+        </p>
+      </section>
 
+      <section>
+        <h2>Boundaries</h2>
+        <p>
+          This is a data-cleaning and exception-reporting service. It does not
+          decide whether equipment is safe, set inspection intervals, issue a
+          compliance conclusion or replace the judgement of the competent
+          person. We use only the rules and intervals you supply, and your team
+          makes the final decision on every flagged row.
+        </p>
+        <p>Please do not email client files. After purchase we agree the minimum data needed and a secure transfer method.</p>
+      </section>
+
+      <section class="offer-faq">
+        <h2>Questions before paying?</h2>
+        <p>Email <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a> with the approximate row count and the system that produced the file. No call is required.</p>
+      </section>
+
+      <hr>
       <footer>
-        <hr>
-        <p>
-          Modest Ambitions is a trading name of Administrative Burden Ltd
-          &middot; Company No. 17363389 &middot; 71-75 Shelton Street, Covent
-          Garden, London WC2H 9JQ
-        </p>
+        <em>Modest Ambitions is a trading name of Administrative Burden Ltd, registered in England and Wales, company number <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">17363389</a>, at 71-75 Shelton Street, Covent Garden, London WC2H 9JQ.</em><br>
+        Copyright © 2026 Administrative Burden Ltd
       </footer>
-    </div>
+    </main>
+
+    <script>
+      (function () {
+        var MARKETS = {
+          GB: { currency: "GBP", price: "£295", label: "£ GBP", url: "https://buy.stripe.com/5kQdR97YygLJ5Z1bXZ5Rm07" },
+          IE: { currency: "EUR", price: "€345", label: "€ EUR", url: "https://buy.stripe.com/14AdR9ceOgLJbjl0fh5Rm08" },
+          AU: { currency: "AUD", price: "A$595", label: "A$ AUD", url: "https://buy.stripe.com/4gMcN5emWcvt0EH3rt5Rm09" },
+          NZ: { currency: "NZD", price: "NZ$665", label: "NZ$ NZD", url: "https://buy.stripe.com/3cIeVdemW9jhfzBfab5Rm0a" }
+        };
+        var ORDER = ["GB", "IE", "AU", "NZ"];
+        function resolve() {
+          var requested = new URLSearchParams(location.search).get("market");
+          if (requested && MARKETS[requested.toUpperCase()]) return requested.toUpperCase();
+          var tz = "";
+          try { tz = Intl.DateTimeFormat().resolvedOptions().timeZone || ""; } catch (e) {}
+          if (/^Australia\//.test(tz)) return "AU";
+          if (/^(Pacific\/Auckland|Pacific\/Chatham)$/.test(tz)) return "NZ";
+          if (/^Europe\/Dublin$/.test(tz)) return "IE";
+          return "GB";
+        }
+        var code = resolve();
+        var market = MARKETS[code];
+        document.getElementById("pat-price").innerHTML = market.price + ' <span>fixed price, ' + market.currency + "</span>";
+        document.getElementById("refund-amount").textContent = market.price;
+        document.getElementById("checkout").href = market.url + "?client_reference_id=EXP-0030-" + code;
+        document.getElementById("switcher").innerHTML = " Paying elsewhere? " + ORDER.filter(function (item) { return item !== code; }).map(function (item) { return '<a href="?market=' + item + '">' + MARKETS[item].label + "</a>"; }).join(" · ");
+      })();
+    </script>
   </body>
 </html>
