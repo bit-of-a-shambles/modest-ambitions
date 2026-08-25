@@ -22,7 +22,7 @@ create_market() {
     --currency "$currency" \
     --unit-amount "$amount" \
     --nickname "OFFER-0019 fixed-scope audit (${market})" \
-    -d "metadata[experiment_id]=EXP-0025" \
+    -d "metadata[experiment_id]=EXP-0033" \
     -d "metadata[idea_id]=IDEA-0005" \
     -d "metadata[offer_id]=OFFER-0019" \
     -d "metadata[market]=${market}" \
@@ -38,7 +38,7 @@ create_market() {
     -d "after_completion[type]=redirect" \
     -d "after_completion[redirect][url]=${THANKS}" \
     -d "custom_text[submit][message]=${SUBMIT_MESSAGE}" \
-    -d "metadata[experiment_id]=EXP-0025" \
+    -d "metadata[experiment_id]=EXP-0033" \
     -d "metadata[idea_id]=IDEA-0005" \
     -d "metadata[offer_id]=OFFER-0019" \
     -d "metadata[market]=${market}" \

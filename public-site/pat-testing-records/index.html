@@ -177,10 +177,12 @@
         }
         var code = resolve();
         var market = MARKETS[code];
+        var requestedExperiment = new URLSearchParams(location.search).get("experiment");
+        var experiment = requestedExperiment === "EXP-0032" ? "EXP-0032" : "EXP-0030";
         document.getElementById("pat-price").innerHTML = market.price + ' <span>fixed price, ' + market.currency + "</span>";
         document.getElementById("refund-amount").textContent = market.price;
-        document.getElementById("checkout").href = market.url + "?client_reference_id=EXP-0030-" + code;
-        document.getElementById("switcher").innerHTML = " Paying elsewhere? " + ORDER.filter(function (item) { return item !== code; }).map(function (item) { return '<a href="?market=' + item + '">' + MARKETS[item].label + "</a>"; }).join(" · ");
+        document.getElementById("checkout").href = market.url + "?client_reference_id=" + experiment + "-" + code;
+        document.getElementById("switcher").innerHTML = " Paying elsewhere? " + ORDER.filter(function (item) { return item !== code; }).map(function (item) { return '<a href="?market=' + item + '&experiment=' + experiment + '">' + MARKETS[item].label + "</a>"; }).join(" · ");
       })();
     </script>
   </body>
