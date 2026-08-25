@@ -30,10 +30,11 @@ export default async function ArboristInvoiceAudit({
       </p>
 
       <header className="offer-header">
-        <p className="eyebrow">For commercial tree-care contractors</p>
+        <p className="eyebrow">For multi-crew commercial tree-care businesses</p>
         <h1>Find completed tree work that never reached an invoice</h1>
         <p className="lede">
-          Crews finish the job. The paperwork moves between a job-management
+          Crews finish the job. Finance or operations then has to follow the
+          paperwork between a job-management
           system, a diary and an accounts package. Some of that work quietly
           stops before it is billed. We compare one bounded sample of your
           accepted work, completion evidence and invoice records, then send back

@@ -38,10 +38,12 @@ test("renders the arborist audit with the live checkout", async () => {
   assert.equal(response.status, 200);
   const html = await response.text();
   assert.match(html, /Find completed tree work/);
+  assert.match(html, /multi-crew commercial tree-care businesses/i);
   assert.match(html, /£395/);
   assert.match(html, /https:\/\/buy\.stripe\.com\/3cIfZhbaK7b9drtgef5Rm03/);
   assert.match(html, /read-only operational check/i);
   assert.match(html, /Please do not email customer files/i);
+  assert.match(html, /client_reference_id=EXP-0033-/i);
 });
 
 test("states an unconditional refund next to the price", async () => {
@@ -102,6 +104,8 @@ test("publishes the manual PAT register rescue and checkout", async () => {
   assert.match(offer, /£295/);
   assert.match(offer, /100% money-back guarantee/i);
   assert.match(offer, /https:\/\/buy\.stripe\.com\/5kQdR97YygLJ5Z1bXZ5Rm07/);
+  assert.match(offer, /requestedExperiment === "EXP-0032"/);
+  assert.match(offer, /client_reference_id=" \+ experiment/);
   assert.match(offer, /It does not\s+decide whether equipment is safe/i);
   assert.doesNotMatch(offer, /software is not finished/i);
 
