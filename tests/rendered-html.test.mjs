@@ -33,6 +33,15 @@ test("renders the studio homepage with the manual service", async () => {
   assert.match(html, /href="\/arborist-invoice-audit\/"/);
 });
 
+test("links the Common Values public good", async () => {
+  const homepage = await readFile(
+    new URL("../public-site/index.html", import.meta.url),
+    "utf8",
+  );
+  assert.match(homepage, /href="https:\/\/commonvalues\.eu">Common Values<\/a>/);
+  assert.doesNotMatch(homepage, /Europe Versus|europe_versus/);
+});
+
 test("renders the arborist audit with the live checkout", async () => {
   const response = await render("/arborist-invoice-audit");
   assert.equal(response.status, 200);
