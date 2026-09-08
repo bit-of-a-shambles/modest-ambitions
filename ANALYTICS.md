@@ -1,9 +1,9 @@
 # MVP website measurement
 
-GA4 property: **Modest Ambitions MVPs**, `553113789`, under the existing
-Personal Websites account. Stream: `G-62Z1WZ0GJT`.
+GA4 property: **Modest Ambitions MVPs**, `553214240`, under the existing
+Savings Fintech analytics account. Stream: `G-7SG7SXN1P8`.
 
-[Open reports](https://analytics.google.com/analytics/web/#/p553113789/reports/reportinghub).
+[Open reports](https://analytics.google.com/analytics/web/#/p553214240/reports/reportinghub).
 The public measurement ID is not a secret. No credentials belong in this repo.
 
 ## What is measured
@@ -55,3 +55,18 @@ such diagnostics, so don't use unfiltered global totals as experiment evidence.
 
 Production is the `public-site` directory deployed by GitHub Pages. The old
 Sites/vinext app is not the production deployment target.
+
+## API reporting access
+
+The existing service account at `~/.config/google-ads/service-account.json`
+has inherited administrator access to this analytics account. Reporting requests
+use only the `analytics.readonly` OAuth scope. No new credential or interactive
+Google sign-in is required. Configuration lives in the validation repository's
+`config/website-analytics.json`; run its `.venv/bin/python -m
+validation_engine.website_analytics` for GA4 activity and verified Stripe orders.
+
+The initial property `553113789` / `G-62Z1WZ0GJT` was placed under Personal
+Websites, where the existing service account had no access. It remains intact
+for historical recovery. On 8 September the site moved to the separate MVP
+property in the existing accessible account. Do not merge the properties'
+counts or assume the new property covers visits before this change.

@@ -33,7 +33,7 @@ const fs = require('node:fs');
   assert(pv); assert.equal(pv[2].experiment_id,experiment); assert.equal(pv[2].email_step,'step_1');
   assert.equal(pv[2].traffic_kind,'visitor'); assert(!JSON.stringify(events).includes('must-not-leak'));
   assert.equal(new URL(pv[2].page_location).searchParams.get('utm_medium'),'email');
-  assert.equal(await page.evaluate(() => window['ga-disable-G-62Z1WZ0GJT']),false,'allow works after decline');
+  assert.equal(await page.evaluate(() => window['ga-disable-G-7SG7SXN1P8']),false,'allow works after decline');
   await page.evaluate(()=>document.addEventListener('click',e=>e.preventDefault(),{capture:true}));
   await page.locator('#checkout').click();
   const tracked = await page.evaluate(()=>window.dataLayer.map(x=>Array.from(x)).filter(x=>x[0]==='event'));
