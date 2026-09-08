@@ -1,7 +1,7 @@
 /* Shared, consent-gated measurement. No secrets or recipient identifiers. */
 (function () {
   'use strict';
-  var ID = 'G-62Z1WZ0GJT';
+  var ID = 'G-7SG7SXN1P8';
   var KEY = 'ma_analytics_consent_v1';
   var query = new URLSearchParams(location.search);
   var qa = query.get('analytics_test') === '1';
