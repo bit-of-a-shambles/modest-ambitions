@@ -1,0 +1,63 @@
+// Run with NODE_PATH pointing to an installed playwright package.
+const { chromium } = require('playwright');
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+(async () => {
+ const browser = await chromium.launch({headless:true,channel:"chrome"});
+ const origin = process.env.ANALYTICS_TEST_ORIGIN || 'http://127.0.0.1:8766';
+ const campaigns = [['delivery-payout-reconciliation','EXP-0031','US'],['pat-testing-records','EXP-0032','GB'],['arborist-invoice-audit','EXP-0033','US']];
+ for (const [slug, experiment, market] of campaigns) {
+  const context = await browser.newContext({viewport:{width:390,height:844}});
+  const page = await context.newPage();
+  let googleRequests = [];
+  // Browser tests stub Google's script: they never create production events.
+  await page.route(/googletagmanager|google-analytics/, route => {googleRequests.push(route.request().url()); return route.fulfill({status:200,contentType:'application/javascript',body:''});});
+  await page.goto(`${origin}/${slug}/?market=${market}&utm_source=snov&utm_medium=cold-email&utm_campaign=${experiment}-T01&utm_content=step_1&email=must-not-leak%40example.com`);
+  assert.equal(googleRequests.length,0,'no Google connection before consent');
+  const checkout = new URL(await page.locator('#checkout').getAttribute('href'));
+  assert.equal(checkout.searchParams.get('client_reference_id'),`${experiment}-${market}-snov-step_1`);
+  assert.equal(checkout.searchParams.get('utm_campaign'),`${experiment}-T01`);
+  assert(!checkout.href.includes('must-not-leak'));
+  const switchURL = new URL(await page.locator('#switcher a').first().getAttribute('href'));
+  assert.equal(switchURL.searchParams.get('utm_campaign'),`${experiment}-T01`);
+  await page.getByRole('button',{name:'No thanks',exact:true}).click();
+  assert.equal(googleRequests.length,0,'decline sends no Google request');
+  await page.reload();
+  assert.equal(await page.locator('.analytics-consent').isVisible(),false,'remember decline');
+  assert.equal(googleRequests.length,0);
+  await page.getByRole('button',{name:'Analytics preferences',exact:true}).click();
+  await page.getByRole('button',{name:'Allow analytics',exact:true}).click();
+  await page.waitForFunction(() => Boolean(window.dataLayer));
+  const events = await page.evaluate(() => window.dataLayer.map(x=>Array.from(x)));
+  const pv = events.find(x=>x[0]==='event' && x[1]==='page_view');
+  assert(pv); assert.equal(pv[2].experiment_id,experiment); assert.equal(pv[2].email_step,'step_1');
+  assert.equal(pv[2].traffic_kind,'visitor'); assert(!JSON.stringify(events).includes('must-not-leak'));
+  assert.equal(new URL(pv[2].page_location).searchParams.get('utm_medium'),'email');
+  assert.equal(await page.evaluate(() => window['ga-disable-G-62Z1WZ0GJT']),false,'allow works after decline');
+  await page.evaluate(()=>document.addEventListener('click',e=>e.preventDefault(),{capture:true}));
+  await page.locator('#checkout').click();
+  const tracked = await page.evaluate(()=>window.dataLayer.map(x=>Array.from(x)).filter(x=>x[0]==='event'));
+  assert(tracked.some(x=>x[1]==='begin_checkout'));
+  assert(!tracked.some(x=>x[1]==='purchase'),'click is not purchase');
+  await page.evaluate(()=>document.cookie='_ga=synthetic; path=/');
+  await page.getByRole('button',{name:'Analytics preferences',exact:true}).click();
+  const after = page.waitForEvent('load');
+  await page.getByRole('button',{name:'No thanks',exact:true}).click();
+  await after;
+  assert(!(await context.cookies()).some(x=>x.name.startsWith('_ga')),'withdraw removes analytics cookies');
+  await context.close();
+  console.log('PASS',slug,': consent, attribution, checkout, no false purchase, withdrawal');
+ }
+ const context=await browser.newContext({viewport:{width:390,height:844}});const page=await context.newPage();
+ await page.route(/googletagmanager|google-analytics/,r=>r.fulfill({status:200,body:''}));
+ await page.goto(origin+'/pat-testing-records/?utm_source=snov&utm_campaign=EXP-0032-T01&utm_content=step_3&analytics_test=1');
+ await page.getByRole('button',{name:'Allow analytics',exact:true}).click();
+ assert((await page.evaluate(()=>window.dataLayer.map(x=>Array.from(x)))).some(x=>x[1]==='qa_page_view' && x[2].traffic_kind==='qa'));
+ await page.goto(origin+'/pat-testing-records/thanks/');
+ assert(!(await page.evaluate(()=>window.dataLayer.map(x=>Array.from(x)))).some(x=>x[1]==='purchase'));
+ await context.close();
+ const preview=await browser.newPage({viewport:{width:390,height:844}});
+ await preview.goto(origin+'/pat-testing-records/');
+ await preview.screenshot({path:process.env.ANALYTICS_SCREENSHOT || '/tmp/ma-analytics-mobile.png',fullPage:false});
+ await browser.close(); console.log('PASS QA isolation and thank-you page does not assert purchase');
+})().catch(e=>{console.error(e);process.exit(1)});

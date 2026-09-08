@@ -44,6 +44,8 @@
       hr { margin: 8px 0; }
       @media (max-width: 620px) { .offer-page { margin-top: 12px; padding: 0 12px; } .offer-card, .offer-grid, .reassurance { grid-template-columns: 1fr; } }
     </style>
+    <link rel="stylesheet" href="/assets/analytics.css">
+    <script defer src="/assets/analytics.js"></script>
   </head>
   <body>
     <main class="offer-page">
@@ -177,7 +179,8 @@
         }
         var code = resolve();
         var market = MARKETS[code];
-        var requestedExperiment = new URLSearchParams(location.search).get("experiment");
+        var params = new URLSearchParams(location.search);
+        var requestedExperiment = params.get("experiment") || (/^EXP-0032(?:-|$)/.test(params.get("utm_campaign") || "") ? "EXP-0032" : "");
         var experiment = requestedExperiment === "EXP-0032" ? "EXP-0032" : "EXP-0030";
         document.getElementById("pat-price").innerHTML = market.price + ' <span>fixed price, ' + market.currency + "</span>";
         document.getElementById("refund-amount").textContent = market.price;
