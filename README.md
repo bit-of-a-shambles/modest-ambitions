@@ -1,5 +1,16 @@
 # vinext-starter
 
+## Public company website
+
+Production `modestambitions.studio` is served by GitHub Pages from `public-site/`.
+The `Deploy GitHub Pages` workflow publishes pushes to `master`; a vinext build
+or a push to `sites-origin` does not update this public domain.
+
+The homepage identifies Administrative Burden Ltd and its relationship to
+PopaDex. `/support/` is the public, no-login company and PopaDex contact page.
+Keep registration details aligned with `COMPANY.md`. Verify these surfaces with
+`node --test tests/company-support.test.mjs` before publication.
+
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
 Drizzle support.

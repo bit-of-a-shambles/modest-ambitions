@@ -15,6 +15,9 @@ must match this file exactly.
 | Registered office | 71-75 Shelton Street, Covent Garden, London, WC2H 9JQ, United Kingdom |
 | Public record | https://find-and-update.company-information.service.gov.uk/company/17363389 |
 | Contact | hello@modestambitions.studio |
+| Apple enrollment / company support | hello@modestambitions.co |
+| PopaDex support | support@popadex.com |
+| Public support page | https://modestambitions.studio/support/ |
 
 Verified against the Companies House public record on 14 August 2026.
 
