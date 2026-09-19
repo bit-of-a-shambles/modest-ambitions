@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="The data fields, redaction steps, transfer method, storage, access, subprocessors, retention and incident contact used for Modest Ambitions fixed-scope pilots.">
+    <title>Data handling and redaction summary | Modest Ambitions</title>
+    <style>
+      body { margin: 0; color: #161616; background: #fff; font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.55; }
+      main { max-width: 800px; margin: 36px auto 64px; padding: 0 20px; }
+      h1 { margin: 10px 0 16px; font-family: Georgia, "Times New Roman", serif; font-size: clamp(34px, 7vw, 58px); font-weight: 500; line-height: 1.04; letter-spacing: -0.035em; }
+      h2 { margin: 34px 0 8px; font-size: 20px; }
+      h3 { margin: 22px 0 4px; font-size: 16px; }
+      p, li { max-width: 720px; }
+      li { margin-bottom: 7px; }
+      .summary { padding: 18px 20px; border-left: 4px solid #17324d; background: #f3f6f8; }
+      .warning { padding: 16px 18px; border: 1px solid #d2a44a; background: #fff8e7; }
+      .small { font-size: 13px; color: #444; }
+      table { width: 100%; border-collapse: collapse; font-size: 14px; }
+      th, td { padding: 9px 10px; border-bottom: 1px solid #d8d8d8; text-align: left; vertical-align: top; }
+      th { background: #e6eef5; }
+      a { color: #0000ee; }
+      footer { margin-top: 48px; font-size: 11px; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p><a href="/">Modest Ambitions</a> / Data handling</p>
+      <h1>Send less data, through the right channel</h1>
+      <p class="summary">
+        This is the current one-page data-handling summary for fixed-scope
+        pilots. It describes the process actually used; it is not a claim of
+        compliance with a particular jurisdiction. A processing agreement is
+        available before any real data is requested.
+      </p>
+
+      <h2>Delivery payout reconciliation: fields needed</h2>
+      <ul>
+        <li>Platform and settlement ID</li>
+        <li>Transaction and deposit dates</li>
+        <li>Gross sales</li>
+        <li>Fees, promotions, refunds and adjustments</li>
+        <li>Net payout and corresponding deposit amount</li>
+        <li>Existing account mapping, if relevant</li>
+      </ul>
+
+      <h2>Remove before transfer</h2>
+      <table>
+        <thead><tr><th>Remove</th><th>Redaction action</th></tr></thead>
+        <tbody>
+          <tr><td>Restaurant or customer names</td><td>Replace with a neutral code such as CLIENT-001</td></tr>
+          <tr><td>Addresses</td><td>Delete the column</td></tr>
+          <tr><td>Customer-level orders</td><td>Provide settlement totals only</td></tr>
+          <tr><td>Bank-account and routing numbers</td><td>Delete or mask completely</td></tr>
+          <tr><td>Employee information</td><td>Delete the column</td></tr>
+          <tr><td>Unrelated transactions</td><td>Export only the matching deposit rows</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Transfer, storage and access</h2>
+      <ul>
+        <li><strong>Transfer:</strong> a first-party encrypted upload link at audits.modestambitions.studio, issued after scope and identity checks. Do not send operational files by ordinary email.</li>
+        <li><strong>In transit:</strong> TLS.</li>
+        <li><strong>At rest:</strong> uploaded files use AES-256-GCM encryption; protected application fields use application-level encryption.</li>
+        <li><strong>Storage location:</strong> the application and working files are hosted by Hetzner in Nuremberg, Germany.</li>
+        <li><strong>Access:</strong> Duarte alone handles the files. Operator access uses a password, TOTP multi-factor authentication, lockout controls and a 20-minute session timeout.</li>
+        <li><strong>Buyer access:</strong> one-use email links expire after 30 minutes; the encrypted buyer session expires after seven days.</li>
+        <li><strong>Purpose:</strong> data is used only to fulfil the agreed engagement.</li>
+        <li><strong>AI providers:</strong> the current process does not send operational file contents to an AI provider.</li>
+      </ul>
+
+      <h2>Subprocessors</h2>
+      <ul>
+        <li><strong>Hetzner:</strong> application and file hosting.</li>
+        <li><strong>Resend:</strong> transactional email and delivery metadata; no uploaded file contents.</li>
+        <li><strong>Stripe:</strong> payment processing; no uploaded file contents.</li>
+      </ul>
+
+      <h2>Retention, deletion and incidents</h2>
+      <ul>
+        <li>Raw files and working outputs are deleted 30 days after delivery and no later than 90 days after upload.</li>
+        <li>You can request earlier deletion by emailing <a href="mailto:hello@modestambitions.studio?subject=Early%20deletion%20request">hello@modestambitions.studio</a>.</li>
+        <li>Encrypted backup copies age out after 35 days and are not deliberately restored after the applicable deletion request.</li>
+        <li>Incident contact: <a href="mailto:hello@modestambitions.studio?subject=Data%20incident">hello@modestambitions.studio</a>.</li>
+      </ul>
+
+      <p class="warning">
+        Review the <a href="https://audits.modestambitions.studio/data-processing">processing agreement</a>
+        before sending real data. Obtain your own legal review before relying on
+        this process for a particular jurisdiction or regulated category.
+      </p>
+
+      <p class="small">Last updated 19 September 2026.</p>
+      <footer>
+        Modest Ambitions is a trading name of Administrative Burden Ltd,
+        company 17363389, England and Wales, 71-75 Shelton Street, Covent Garden,
+        London WC2H 9JQ.
+      </footer>
+    </main>
+  </body>
+</html>

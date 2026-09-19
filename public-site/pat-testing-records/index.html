@@ -22,6 +22,7 @@
       .checkout-button { display: inline-block; padding: 13px 18px; border: 2px solid #000; border-radius: 2px; color: #fff; background: #101010; font-weight: 700; text-align: center; text-decoration: none; }
       .checkout-button:visited { color: #fff; }
       .checkout-button:hover { background: #343434; }
+      .secondary-action { display: inline-block; margin-top: 9px; font-size: 14px; }
       .offer-card .guarantee-line { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #d8cf9a; }
       .offer-card .small-print { grid-column: 1 / -1; color: #444; }
       .reassurance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; margin: 0 0 34px; padding: 0; list-style: none; }
@@ -66,18 +67,22 @@
           <p class="price" id="pat-price">£295 <span>fixed price, GBP</span></p>
           <p>One register, up to 1,000 appliance rows. No subscription and nothing to install.</p>
         </div>
-        <a class="checkout-button" id="checkout" href="https://buy.stripe.com/5kQdR97YygLJ5Z1bXZ5Rm07?client_reference_id=EXP-0030-GB">Purchase the register rescue</a>
+        <div>
+          <a class="checkout-button" href="mailto:hello@modestambitions.studio?subject=PAT%20register%20sample%20and%20fit%20check">Request the sample / check fit</a><br>
+          <a class="secondary-action" id="checkout" href="https://buy.stripe.com/5kQdR97YygLJ5Z1bXZ5Rm07?client_reference_id=EXP-0030-GB">Purchase the pilot</a>
+        </div>
         <p class="guarantee-line">
           <strong>100% money-back guarantee.</strong> Read the finished files.
           If they are not useful, reply and say so and we refund the full
           <span id="refund-amount">£295</span>. You keep the work.
         </p>
         <p class="small-print">Secure checkout by Stripe. We never see your card details. <span id="switcher"></span></p>
+        <p class="small-print">Before purchase: <a href="/data-handling/">data handling and redaction</a> · <a href="https://audits.modestambitions.studio/data-processing">processing agreement</a></p>
       </section>
 
       <ul class="reassurance">
         <li>Delivery within five business days of a usable export.</li>
-        <li>No call, demo or software migration.</li>
+        <li>No call is required; email review or a short conversation is available.</li>
         <li>Read-only. We change nothing in your systems.</li>
         <li>Files deleted 30 days after delivery.</li>
       </ul>
@@ -127,10 +132,9 @@
           before sending anything.
         </p>
         <p>
-          This is a new service, so there are no customer logos or borrowed
-          testimonials here. The protection is practical: a fixed scope, a
-          named person, a finished deliverable you can inspect and a full refund
-          if it does not help.
+          The pilot is deliberately practical: a fixed scope, a named person,
+          a finished deliverable you can inspect and a full refund if it does
+          not help.
         </p>
       </section>
 
@@ -143,12 +147,21 @@
           person. We use only the rules and intervals you supply, and your team
           makes the final decision on every flagged row.
         </p>
-        <p>Please do not email client files. After purchase we agree the minimum data needed and a secure transfer method.</p>
+        <p>
+          Please do not email client files. After we agree scope and provide the
+          <a href="https://audits.modestambitions.studio/data-processing">processing agreement</a>,
+          files are uploaded through our first-party encrypted transfer service
+          at audits.modestambitions.studio. Read the
+          <a href="/data-handling/">data-handling and redaction summary</a>
+          before checkout. The current process does not send operational file
+          contents to an AI provider.
+        </p>
       </section>
 
       <section class="offer-faq">
         <h2>Questions before paying?</h2>
-        <p>Email <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a> with the approximate row count and the system that produced the file. No call is required.</p>
+        <p>Email <a href="mailto:hello@modestambitions.studio?subject=PAT%20register%20sample%20and%20fit%20check">hello@modestambitions.studio</a> with the approximate row count and the system that produced the file—no real records. No call is required. If you want to check fit first, a 12-minute conversation or email review is available.</p>
+        <p class="small-print"><a href="/outbound-email/">Why outreach may come from @modestambitions.co</a></p>
       </section>
 
       <hr>
