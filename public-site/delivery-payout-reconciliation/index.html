@@ -21,6 +21,7 @@
       .checkout-button { display: inline-block; padding: 13px 18px; border: 2px solid #000; border-radius: 2px; color: #fff; background: #101010; font-weight: 700; text-align: center; text-decoration: none; }
       .checkout-button:visited { color: #fff; }
       .checkout-button:hover { background: #343434; }
+      .secondary-action { display: inline-block; margin-top: 9px; font-size: 14px; }
       .offer-card .guarantee-line { grid-column: 1 / -1; padding-top: 16px; border-top: 1px solid #d8cf9a; }
       .offer-card .small-print { grid-column: 1 / -1; color: #444; }
       .reassurance { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 4px 24px; margin: 0 0 34px; padding: 0; list-style: none; }
@@ -65,18 +66,22 @@
           <p class="price" id="delivery-price">$295 <span>fixed price, USD</span></p>
           <p>One restaurant client, one month and up to three delivery platforms. No subscription.</p>
         </div>
-        <a class="checkout-button" id="checkout" href="https://buy.stripe.com/14A14ngv41QP1IL8LN5Rm0b?client_reference_id=EXP-0031-US">Purchase the pilot</a>
+        <div>
+          <a class="checkout-button" href="mailto:hello@modestambitions.studio?subject=Delivery%20payout%20sample%20and%20fit%20check&amp;body=Please%20send%20the%20invented%20sample.%20Platforms%3A%20%5Boptional%5D%0AAccounting%20system%3A%20%5Boptional%5D%0AApproximate%20monthly%20transaction%20count%3A%20%5Boptional%5D">Request the sample / check fit</a><br>
+          <a class="secondary-action" id="checkout" href="https://buy.stripe.com/14A14ngv41QP1IL8LN5Rm0b?client_reference_id=EXP-0031-US">Purchase the pilot</a>
+        </div>
         <p class="guarantee-line">
           <strong>100% money-back guarantee.</strong> Review the pack. If it is
           not useful for your close, reply and say so and we refund the full
           <span id="refund-amount">$295</span>. You keep the work.
         </p>
         <p class="small-print">Secure checkout by Stripe. We never see your card details. <span id="switcher"></span></p>
+        <p class="small-print">Before purchase: <a href="/data-handling/">data handling and redaction</a> · <a href="https://audits.modestambitions.studio/data-processing">processing agreement</a></p>
       </section>
 
       <ul class="reassurance">
         <li>Delivery within five business days of usable exports.</li>
-        <li>No call, demo or integration.</li>
+        <li>No call is required; email review or a short conversation is available.</li>
         <li>Read-only. You review and post every entry.</li>
         <li>Files deleted 30 days after delivery.</li>
       </ul>
@@ -127,10 +132,9 @@
           before sending anything.
         </p>
         <p>
-          This is a new service, so I will not manufacture social proof. The
-          protection is the work itself: one bounded client period, a fixed
-          price, source-linked rows, a named person and a full refund if the
-          result does not help your close.
+          The pilot is deliberately bounded: one client period, a fixed price,
+          source-linked rows, a named person and a full refund if the result
+          does not help your close.
         </p>
       </section>
 
@@ -142,12 +146,26 @@
           file, post journals, contact your client or decide how an uncertain
           item should be treated. Your firm reviews and approves every entry.
         </p>
-        <p>Please do not email client files. After purchase we agree the minimum data needed and a secure transfer method.</p>
+        <p>
+          Please do not email client files. After we agree scope and provide the
+          <a href="https://audits.modestambitions.studio/data-processing">processing agreement</a>,
+          files are uploaded through our first-party encrypted transfer service
+          at audits.modestambitions.studio. Read the
+          <a href="/data-handling/">data-handling and redaction summary</a>
+          before checkout. The current process does not send operational file
+          contents to an AI provider.
+        </p>
       </section>
 
       <section class="offer-faq">
         <h2>Questions before paying?</h2>
-        <p>Email <a href="mailto:hello@modestambitions.studio">hello@modestambitions.studio</a> with the platforms and accounting system involved. No call is required.</p>
+        <p>
+          Email <a href="mailto:hello@modestambitions.studio?subject=Delivery%20payout%20sample%20and%20fit%20check">hello@modestambitions.studio</a>
+          with the platforms, accounting system, approximate transaction count
+          and current process—no real records. No call is required. If you want
+          to check fit first, a 12-minute conversation or email review is available.
+        </p>
+        <p class="small-print"><a href="/outbound-email/">Why outreach may come from @modestambitions.co</a></p>
       </section>
 
       <hr>
