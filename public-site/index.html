@@ -3,8 +3,9 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Modest Ambitions is the trading name of Administrative Burden Ltd, a UK software company building and operating PopaDex and other useful software products.">
+    <meta name="description" content="Modest Ambitions is the trading name of Administrative Burden Ltd. We build PopaDex, personal finance software for web and iPhone, and LookupDock, checks for signups and lead lists.">
     <title>Modest Ambitions — Software Startup Studio</title>
+    <link rel="canonical" href="https://modestambitions.studio/">
     <style>
       body {
         margin: 8px;
@@ -57,15 +58,6 @@
       .directory { margin: 0 0 14px; padding-left: 24px; }
       .directory a { font-size: 14px; font-weight: bold; }
 
-      .directory mark {
-        padding: 0 2px;
-        color: #000;
-        background: #ff0;
-        font-size: 8px;
-        font-style: italic;
-        vertical-align: 2px;
-      }
-
       .count { margin: 22px 0 0; font-size: 11px; }
       footer { font-size: 10px; }
     </style>
@@ -76,16 +68,15 @@
     <main id="top">
       <h1><a href="#top">Modest Ambitions</a> - A Software Startup Studio</h1>
 
-      <nav class="text-nav">
+      <nav class="text-nav" aria-label="Primary navigation">
         [ <a href="#about">What We Do?</a> ]
         [ <a href="#portfolio">Portfolio</a> ]
-        [ <a href="#services">Services</a> ]
         [ <a href="#experiments">Failed experiments</a> ]
         [ <a href="#public-goods">Public goods</a> ]
         [ <a href="/support/">Support &amp; contact</a> ]
       </nav>
 
-      <nav class="button-nav">
+      <nav class="button-nav" aria-label="Shortcuts">
         <a class="yellow" href="#top">▾ Top</a>
         <a class="lilac" href="#portfolio">↗ Portfolio</a>
         <a class="pink" href="#about">✦ About</a>
@@ -93,45 +84,52 @@
 
       <p id="about">Modest Ambitions builds and operates small, useful internet businesses.</p>
       <p>Modest Ambitions is the trading name of <strong>Administrative Burden Ltd</strong>, a software company registered in England and Wales (company number <a href="https://find-and-update.company-information.service.gov.uk/company/17363389">17363389</a>). This is our official company website.</p>
-      <p>We develop and operate software products, including PopaDex, our personal finance tracker. Our work covers product development, maintenance and customer support. For help with any of our products, visit <a href="/support/">Support &amp; contact</a>.</p>
+      <p>Our current focus is <a href="https://popadex.com">PopaDex</a>, our personal finance tracker, and <a href="https://lookupdock.com/">LookupDock</a>, checks for signups and lead lists. Our work covers product development, maintenance and customer support. For help with any of our products, visit <a href="/support/">Support &amp; contact</a>.</p>
+      <p>Last updated <time datetime="2026-11-11">11 November 2026</time>.</p>
 
       <h2 id="portfolio">Portfolio</h2>
       <ul class="directory">
         <li>
           <a href="https://popadex.com">PopaDex</a>
-          <em> (personal finance software)</em> <mark>NEW</mark>
-          <p>Track accounts, assets, liabilities and net worth in one place. PopaDex is developed and operated by Administrative Burden Ltd, trading as Modest Ambitions. <a href="/support/#popadex">Get PopaDex support</a>.</p>
+          <em> (personal finance software)</em> <strong>Live on web and iPhone.</strong>
+          <p>Track accounts, assets, liabilities and net worth in one place. iPhone app access is included with Premium. <a href="/support/#popadex">Get PopaDex support</a>.</p>
+        </li>
+        <li>
+          <a href="https://lookupdock.com/">LookupDock</a>
+          <em> (signup and lead-list checks)</em> <strong>Live.</strong>
+          <p>Phone, email and IP checks for signups and lead lists, available through an API, CSV uploads and MCP.</p>
         </li>
         <li>
           <a href="https://bit-of-a-shambles.github.io/relay-server/">Relay</a>
-          <em> (mobile remote for coding agents)</em> <mark>NEW</mark>
+          <em> (mobile remote for coding agents)</em> <strong>In development.</strong>
+          <p>The open-source Mac companion is available. The iPhone app is not publicly available; its App Store release is pending.</p>
         </li>
       </ul>
 
-      <p class="count"><em>2 software products in the portfolio</em> | <a href="#top">Top</a> | <a href="#about">About</a></p>
+      <p class="count"><a href="#top">Top</a> | <a href="#about">About</a></p>
 
-      <h2 id="services">Services being tested</h2>
-      <ul class="directory">
+      <h2 id="experiments">Failed experiments</h2>
+      <ul class="directory" id="services">
         <li>
           <a href="https://audits.modestambitions.studio/products/invoice-audit"><strong>Completed-work invoice exception audit for commercial tree-care contractors</strong></a>
-          <em> - a fixed-price audit that compares completed job records against invoices to find work that was done but never billed. Hypothesis: trades contractors lose revenue to silent invoicing gaps, will pay a fixed fee to surface them, and a bounded one-off audit is easier to sell than a subscription or software install. Customers are reachable and already pay for software. Problem is mentioned in reviews. Unit economics present a high margin which makes email outbound positive-ROI. If enough demand, a SaaS could be built.</em>
+          <em> - a fixed-price pilot comparing completed job records against invoices to find work that was done but never billed.</em>
+          <p>We struggled to reach the person responsible for invoicing. Early outreach relied too heavily on general enquiry inboxes and small firms; a narrower retest ran into bounced emails. We did not establish paid demand and stopped allocating time to it.</p>
         </li>
         <li>
           <a href="https://audits.modestambitions.studio/products/pat-register"><strong>PAT register rescue for testing businesses</strong></a>
-          <em> - a fixed-price cleanup of one existing appliance register, with an import-ready file and a separate exception list for duplicates, blanks and conflicting dates.</em>
+          <em> - a fixed-price pilot cleaning up an existing appliance register, with an import-ready file and an exception list for duplicates, blanks and conflicting dates.</em>
+          <p>Search ads attracted software shoppers rather than buyers of a one-off cleanup, and existing tools already handled routine imports. Landing-page errors and poor contact data weakened the tests. We never established a costly cleanup problem buyers would pay us to fix.</p>
         </li>
         <li>
           <a href="https://audits.modestambitions.studio/products/delivery-payout"><strong>Delivery payout reconciliation for restaurant accounting firms</strong></a>
           <em> - a fixed-price manual pilot that turns one client's delivery-platform exports into a review-ready posting pack and a source-linked exception report.</em>
+          <p>We changed a restaurant-automation idea into a manual service for accountants without validating that buyer. Outreach produced no positive replies, while poor targeting and contact data weakened the test. We did not establish paid demand and parked the offer.</p>
         </li>
         <li>
           <a href="https://outoffer.win"><strong>Outoffer</strong></a>
-          <em> - a performance-based marketplace where software companies compete to give customers the best deal. Merchants fund acquisition campaigns upfront and only pay a bounty when a verified customer genuinely pays them. Hypothesis: software companies will pay for verified customer acquisition with transparent unit economics, and a competitive deal leaderboard creates organic demand. Bounded scope: one campaign at a time, fixed bounty per verified purchase.</em>
+          <em> (customer-acquisition marketplace)</em>
+          <p>Recruiting merchants would require burdensome outreach to the wrong customer profile. We judged the chance of success too low to justify the time, so the opportunity cost ruled it out.</p>
         </li>
-      </ul>
-
-      <h2 id="experiments">Failed experiments</h2>
-      <ul class="directory">
         <li>
           <a href="https://github.com/bit-of-a-shambles/voxpopli">Voxpopli</a>
           <em> (privacy-first open source microblogging) - not a good business model for bootstrapping; community building is extremely challenging; difficult to get network effects even with good supply-side for founders.</em>
@@ -139,6 +137,7 @@
         <li>
           <a href="https://github.com/bit-of-a-shambles/popper">Popper</a>
           <em> (polymarket for falsification - conjectures and refutations web app with Ethereum bounty staking) - too esoteric and difficult to get in front of potential buyers (institutional, risk-averse); not an ideal business model for bootstrapping. Potential effective altruism-aligned funders not interested.</em>
+        </li>
       </ul>
 
       <h2 id="public-goods">Public goods</h2>

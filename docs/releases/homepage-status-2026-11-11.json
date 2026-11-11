@@ -1,0 +1,49 @@
+{
+  "as_of": "2026-11-11",
+  "state": "approved_release_candidate",
+  "production_url": "https://modestambitions.studio/",
+  "deployment_source": "GitHub Pages public-site/, master branch",
+  "authorization": "Founder approved pushing and publishing on 11 November 2026; subsequent copy edits remain within that publication.",
+  "base_revision": "3e20d6354f9650c418d5dc5c473ae4467786b715",
+  "changes": [
+    "Updated PopaDex web/iPhone availability and shortened its company attribution.",
+    "Added a neutral LookupDock product listing without pricing, trial or promotional copy.",
+    "Clarified Relay is in development with public iPhone release pending.",
+    "Moved three earlier service pilots and Outoffer into failed experiments with brief reasons.",
+    "Kept Shopify/Reorder CSV out of the public portfolio at the founder's request.",
+    "Preserved company registration and public support details.",
+    "Corrected punctuation on two manual-offer pages to satisfy the existing check."
+  ],
+  "validation": [
+    {
+      "command": "npm test",
+      "result": "PASS: production build and 9 tests; application build inputs unchanged since that run."
+    },
+    {
+      "command": "node --test tests/company-support.test.mjs tests/rendered-html.test.mjs",
+      "result": "PASS: 12 tests on final copy."
+    },
+    {
+      "command": "NODE_PATH=/Users/d/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules HOMEPAGE_SCREENSHOT_DIR=/Users/d/code/modest-ambitions-site/outputs/homepage-status-2026-11-11 node tests/homepage-browser.cjs",
+      "result": "PASS: desktop, mobile, narrow and JavaScript-disabled journeys on final copy; product descriptions, failures navigation/rationales, support and no overflow. External destinations and analytics intercepted."
+    },
+    {
+      "command": "NODE_PATH=/Users/d/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules node tests/analytics-browser.cjs",
+      "result": "PASS: three legacy offer journeys, consent, attribution, checkout events and withdrawal; unchanged offer/analytics inputs since run."
+    },
+    {
+      "command": "node --check tests/homepage-browser.cjs",
+      "result": "PASS"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS"
+    }
+  ],
+  "publication_snapshot": "Prepared before commit and deployment; publication result is recorded separately.",
+  "tested_source": {
+    "sha256": "6f184b4a39d809e06d385be2fa0c94f12333026242a18e6fe84f49f6f2c6bf76",
+    "method": "SHA256 of canonical sorted path/sha256 manifest of tracked files plus tests/homepage-browser.cjs, excluding this release note."
+  },
+  "independent_review": "No factual or release blockers found in final source, tests or public release notes."
+}

@@ -10,7 +10,7 @@ const support = readFileSync(new URL('support/index.html', root), 'utf8');
 test('homepage clearly associates the trading name and PopaDex with the legal entity', () => {
   assert.match(home, /trading name of <strong>Administrative Burden Ltd/);
   assert.match(home, /This is our official company website/);
-  assert.match(home, /PopaDex is developed and operated by Administrative Burden Ltd/);
+  assert.match(home, /Our current focus is [\s\S]*?>PopaDex<\/a>[\s\S]*?>LookupDock<\/a>/);
   assert.match(home, /href="\/support\/"/);
   assert.match(home, /17363389/);
   assert.match(home, /WC2H 9JQ/);

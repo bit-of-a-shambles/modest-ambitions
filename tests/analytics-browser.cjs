@@ -13,6 +13,10 @@ const fs = require('node:fs');
   // Browser tests stub Google's script: they never create production events.
   await page.route(/googletagmanager|google-analytics/, route => {googleRequests.push(route.request().url()); return route.fulfill({status:200,contentType:'application/javascript',body:''});});
   await page.goto(`${origin}/${slug}/?market=${market}&utm_source=snov&utm_medium=cold-email&utm_campaign=${experiment}-T01&utm_content=step_1&email=must-not-leak%40example.com`);
+  if (slug !== 'arborist-invoice-audit') {
+   assert(!((await page.locator('main').innerText()).includes('—')), 'manual offer copy contains no em dashes');
+   assert((await page.locator('main').innerText()).includes('Do not include real records.'), 'enquiry instructions keep real records out of email');
+  }
   assert.equal(googleRequests.length,0,'no Google connection before consent');
   const checkout = new URL(await page.locator('#checkout').getAttribute('href'));
   assert.equal(checkout.searchParams.get('client_reference_id'),`${experiment}-${market}-snov-step_1`);

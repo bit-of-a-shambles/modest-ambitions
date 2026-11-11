@@ -7,9 +7,16 @@ The `Deploy GitHub Pages` workflow publishes pushes to `master`; a vinext build
 or a push to `sites-origin` does not update this public domain.
 
 The homepage identifies Administrative Burden Ltd and its relationship to
-PopaDex. `/support/` is the public, no-login company and PopaDex contact page.
+PopaDex and LookupDock. It separates live products, pending platform releases,
+failed experiments and public goods. `/support/` is the public, no-login company
+and PopaDex contact page.
 Keep registration details aligned with `COMPANY.md`. Verify these surfaces with
 `node --test tests/company-support.test.mjs` before publication.
+
+For the homepage journey and mobile/desktop layout, serve `public-site/` locally
+and run `node tests/homepage-browser.cjs`. As with the analytics browser check,
+set `NODE_PATH` to an installed Playwright package. The test stubs analytics and
+product destinations so it does not create production events or accounts.
 
 A clean full-stack starter running on
 [vinext](https://github.com/cloudflare/vinext), with optional Cloudflare D1 and
